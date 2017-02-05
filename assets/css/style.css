@@ -1,0 +1,17 @@
+body {
+	background-image: url("starwarbg.jpg");
+	color: white;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+#yourChar{
+	height: 150px;
+}
+
+.enemies{
+	background-color: red;
+}
