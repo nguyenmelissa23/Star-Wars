@@ -1,18 +1,17 @@
-
-
+$(document).ready(function(){
 	var charLife;
 	var charName;
 	var character;
 	var defLife;
 	var defName;
 	var defender;
-
+	var restartbtn = $("<button>");
 	//Object Game
 	var swGame = {
 		charLoss: 0,
 		defLoss: 0,
 		wait : true,
-		attackwait: true, 
+		attackwait: false, 
 		//reset: false, 
 	}; 
 
@@ -101,7 +100,6 @@
 				defLife = Number($(this).attr("data-Life"));
 				swGame.wait= false;
 			}
-			attack();
 		})
 	} 
 
@@ -139,8 +137,6 @@
 				//defender.detach("#defender");
 				defender.addClass("hidden");
 				defender.appendTo("#yourChar");
-				start();
-				attack();
 				console.log($("#enemy button").text().length);
 				if ( $("#enemy button").text().length === 0 ) {
 					$("#winlose").text("YOU WON!");
@@ -153,12 +149,12 @@
 	} 
 
 	function resBtn(){
-		var restartbtn = $("<button>");
+		$("#restart").removeClass("hidden");
 		restartbtn.text("Restart");
 		$("#restart").append(restartbtn);
 		$("#restart").on("click", function(){
 			Initialize();
-			$(this).hide();
+			$(this).addClass("hidden");
 			$("#charOpt").children().removeClass("red black");
 			$("#charOpt").children().removeClass("allchars");
 			$("#charOpt").children().addClass("allchars");
@@ -166,13 +162,14 @@
 			$("#charOpt").appendTo($("#wrap"));
 			print();
 			swGame.wait=true;
-			swGame.attackwait=true;
+			swGame.attackwait=false;
 		})
 	}
 
-$(document).ready(function(){
+
 	Initialize();
 	print();
 	start();
+	attack();
 
 });
