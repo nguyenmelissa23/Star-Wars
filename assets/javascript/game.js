@@ -15,7 +15,7 @@ $(document).ready(function(){
 		//reset: false, 
 	}; 
 
-	//Assign name
+	//Assign names
 
 	function print() {
 		$("#obiName").text($("#obik").attr("data-Name"));
